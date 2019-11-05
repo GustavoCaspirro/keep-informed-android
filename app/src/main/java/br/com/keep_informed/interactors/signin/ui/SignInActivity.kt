@@ -1,7 +1,8 @@
-package br.com.keep_informed
+package br.com.keep_informed.interactors.signin.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.keep_informed.R
 
 class SignInActivity : AppCompatActivity() {
 

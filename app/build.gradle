@@ -1,8 +1,11 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: "io.fabric"
+
+
 
 android {
     compileSdkVersion 29
@@ -11,10 +14,24 @@ android {
         applicationId "br.com.keep_informed"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 1
+        versionCode rootProject.lastVersionCode()
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,16 +41,98 @@ android {
 }
 
 dependencies {
-    def nav_version = "2.1.0-rc01"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.multidex:multidex:$multidex_version"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation "androidx.appcompat:appcompat:${rootProject.appcompat_version}"
+
+    implementation "androidx.core:core-ktx:${rootProject.ktx_version}"
+
+
+    implementation "androidx.constraintlayout:constraintlayout:${rootProject.constraintlayout_version}"
+    implementation "com.google.android.material:material:${rootProject.material_version}"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:${rootProject.lifecycle_version}"
+
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:${rootProject.navigation_version}"
+    implementation "androidx.navigation:navigation-ui-ktx:${rootProject.navigation_version}"
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:${rootProject.timber_version}"
+
+    //Stetho
+    implementation "com.facebook.stetho:stetho:${rootProject.stetho_version}"
+
+    //Crashlytics
+    implementation "com.crashlytics.sdk.android:crashlytics:${rootProject.crashlytics_version}"
+
+    //Firebase
+    implementation "com.google.firebase:firebase-core:${rootProject.firebase_core}"
+    implementation "com.google.firebase:firebase-messaging:${rootProject.firebase_messaging}"
+    implementation "com.google.firebase:firebase-config:${rootProject.firebase_config}"
+    implementation "com.google.firebase:firebase-analytics:${rootProject.firebase_analytics}"
+    implementation "com.crashlytics.sdk.android:crashlytics:${rootProject.firebase_crashlytics}"
+
+
+    //Play Services
+    implementation "com.google.android.gms:play-services-analytics:${rootProject.gms_analytics_version}"
+    implementation "com.google.android.gms:play-services-gcm:${rootProject.gms_gcm_version}"
+    implementation "com.google.android.gms:play-services-stats:${rootProject.gms_stats_version}"
+    implementation "com.google.android.gms:play-services-flags:${rootProject.gms_flags_version}"
+    implementation "com.google.android.gms:play-services-cast-framework:${rootProject.gms_cast_version}"
+
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxjava_version}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxjava_version}"
+
+    //Architecture Components
+    implementation "androidx.paging:paging-runtime:${rootProject.paging_version}"
+    implementation "androidx.paging:paging-rxjava2:${rootProject.paging_version}"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:${rootProject.dagger_version}"
+
+
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    kapt "com.google.dagger:dagger-compiler:${rootProject.dagger_version}"
+
+    //Dagger Android
+    kapt "com.google.dagger:dagger-android-processor:${rootProject.dagger_version}"
+    implementation "com.google.dagger:dagger-android-support:${rootProject.dagger_version}"
+    implementation "com.google.dagger:dagger-android:${rootProject.dagger_version}"
+
+    //EventBus
+    implementation "org.greenrobot:eventbus:${rootProject.eventbus_version}"
+
+
+    //Facebook
+    implementation "com.facebook.android:facebook-share:${rootProject.facebook_share_version}"
+    implementation "com.facebook.android:facebook-android-sdk:${rootProject.facebook_sdk_version}"
+    implementation "com.google.android.gms:play-services-auth:${rootProject.google_auth_version}"
+
+
+    //Dots indicator https://github.com/tommybuonomo/dotsindicator
+    implementation "com.tbuonomo.andrui:viewpagerdotsindicator:${rootProject.dotsindicator_version}"
+
+    //CircleImageView https://github.com/hdodenhof/CircleImageView
+    implementation "de.hdodenhof:circleimageview:${rootProject.circleimageview_version}"
+
+    //Picasso https://github.com/square/picasso
+    implementation "com.squareup.picasso:picasso:${rootProject.picasso_version}"
+
+    //MaterialSearchView https://github.com/brunoluizcs/MaterialSearchView
+    implementation "com.miguelcatalan:materialsearchview:${rootProject.materialsearchview_version}"
+
+    //Test
+    testImplementation "junit:junit:${rootProject.junit_version}"
+    androidTestImplementation "androidx.test:runner:${rootProject.testrunner_version}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.espressocore_version}"
 }
+
+apply plugin: 'com.google.gms.google-services'

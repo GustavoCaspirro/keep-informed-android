@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/navigation_home">
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="br.com.keep_informed.interactors.home.ui.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_newsFragment_to_detailsNewsFragment"
+            app:destination="@id/detailsNewsFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_offlineNewsFragment"
+            app:destination="@id/navigation_bookmark" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_search"
+            app:destination="@id/navigation_search" />
+        <action
+            android:id="@+id/action_navigation_home_to_searchMapFragment"
+            app:destination="@id/navigation_map" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsNewsFragment"
+        android:name="br.com.keep_informed.interactors.details.ui.DetailsNewsFragment"
+        android:label="fragment_details_news"
+        tools:layout="@layout/fragment_details_news" />
+    <fragment
+        android:id="@+id/navigation_bookmark"
+        android:name="br.com.keep_informed.interactors.bookmark.ui.BookMarkFragment"
+        tools:layout="@layout/fragment_bookmark" />
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="br.com.keep_informed.interactors.map.ui.SearchMapFragment"
+        tools:layout="@layout/fragment_search_map">
+        <action
+            android:id="@+id/action_searchMapFragment_to_searchResultMapFragmet"
+            app:destination="@id/searchResultMapFragmet" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultMapFragmet"
+        android:name="br.com.keep_informed.interactors.map.ui.SearchResultMapFragmet"
+        android:label="fragment_search_result_map"
+        tools:layout="@layout/fragment_search_result_map" />
+    <fragment
+        android:id="@+id/navigation_search"
+        tools:layout="@layout/fragment_search"
+        android:name="br.com.keep_informed.interactors.search.ui.SearchFragment"
+        android:label="" />
+</navigation>

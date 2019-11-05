@@ -1,25 +1,114 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
-    ext.kotlin_version = '1.3.41'
+    ext.kotlin_version = '1.3.50'
+    ext.google_play_services_version = "4.3.2"
+    ext.nav_version = "2.1.0-rc01"
+    ext.fabric_version = "1.31.0"
+
     repositories {
         google()
         jcenter()
-        
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath "com.google.gms:google-services:$google_play_services_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "io.fabric.tools:gradle:$fabric_version"
     }
+}
+
+ext{
+    lastVersionCode = {return (Integer) Long.parseLong(new Date().format("yyyyMMddHHmmss"))}
+
+    //Multidex
+    multidex_version    = "2.0.1"
+
+    //Logger
+    timber_version      = "4.7.1"
+    stetho_version      = "1.5.1"
+
+    //Crashlytics
+    crashlytics_version = "2.10.1"
+
+    //Firebase
+    firebase_core        = "15.0.2"
+    firebase_messaging   = "15.0.2"
+    firebase_config      = "15.0.2"
+    firebase_analytics   = "15.0.2"
+    firebase_crashlytics = "2.10.1"
+
+    //Play Services
+    gms_analytics_version = "15.0.2"
+    gms_gcm_version       = "15.0.1"
+    gms_stats_version     = "16.0.1"
+    gms_flags_version     = "16.0.1"
+    gms_cast_version      = "15.0.1"
+
+    //Router
+    mediarouter_version   = "1.0.0"
+
+    //Rx
+    rxjava_version        = "2.0.2"
+
+    //DI
+    dagger_version        = "2.24"
+
+    //Extensions
+    ktx_version           = "1.1.0"
+
+    //Support
+    appcompat_version     = "1.1.0"
+
+    //UI
+    constraintlayout_version   = "1.1.3"
+    material_version           = "1.0.0"
+    dotsindicator_version      = "4.1.2"
+    circleimageview_version    = "3.0.1"
+    picasso_version            = "2.71828"
+    materialsearchview_version = "1.4.0"
+    root_mask_version          = "5.0.0"
+
+    //Lifecycle
+    lifecycle_version      = "2.1.0"
+
+    //Navigation
+    navigation_version    = "2.1.0"
+
+
+    //Comunication
+    eventbus_version      = "3.1.1"
+
+    //Social
+    facebook_share_version = "5.8.0"
+    facebook_sdk_version   = "5.4.0"
+
+    google_auth_version    = "17.0.0"
+
+    //Components
+    paging_version = "2.1.0"
+
+
+    //Tests
+    junit_version        = "4.12"
+    testrunner_version   = "1.2.0"
+    espressocore_version = "3.2.0"
+
+    //RetroFit
+    retrofit_version = "2.4.0"
+    logging_interceptor_version = "3.8.0"
+
+
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
-        
+        mavenCentral()
     }
 }
 

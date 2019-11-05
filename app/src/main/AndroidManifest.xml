@@ -9,22 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NavHost"></activity>
-        <activity android:name=".SearchResultMapActivity" />
-        <activity android:name=".SearchMapActivity" />
-        <activity android:name=".OfflineNewsActivity" />
-        <activity android:name=".DetailsNewsActivity" />
-        <activity android:name=".NewsActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".interactors.navigation.ui.NavigationActivity"></activity>
+        <activity android:name=".interactors.signup.ui.SignUpActivity" />
+        <activity android:name=".interactors.signin.ui.SignInActivity" />
+        <activity android:name=".interactors.splash.ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

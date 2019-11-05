@@ -1,9 +1,12 @@
-package br.com.keep_informed
+package br.com.keep_informed.interactors.splash.ui
 
 import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.keep_informed.R
+import br.com.keep_informed.interactors.navigation.ui.NavigationActivity
+import br.com.keep_informed.interactors.signin.ui.SignInActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -15,7 +18,8 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-        SleepTask().execute(object : OnTaskExecute {
+        SleepTask().execute(object :
+            OnTaskExecute {
             override fun onExecute() {
                 startNextActivity()
             }
@@ -23,8 +27,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun startNextActivity() {
-
-        val intent = Intent(this, SignInActivity::class.java)
+        val intent = Intent(this, NavigationActivity::class.java)
         intent.flags =  Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
         startActivity(intent)
