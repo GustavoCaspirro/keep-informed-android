@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/newsFragment">
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="br.com.keep_informed.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_detailsNewsFragment"
+            app:destination="@id/detailsNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsNewsFragment"
+        android:name="br.com.keep_informed.DetailsNewsFragment"
+        android:label="fragment_details_news"
+        tools:layout="@layout/fragment_details_news" />
+    <fragment
+        android:id="@+id/offlineNewsFragment"
+        android:name="br.com.keep_informed.OfflineNewsFragment"
+        android:label="fragment_offline_news"
+        tools:layout="@layout/fragment_offline_news" >
+        <action
+            android:id="@+id/action_offlineNewsFragment_to_detailsNewsFragment"
+            app:destination="@id/detailsNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchMapFragment"
+        android:name="br.com.keep_informed.SearchMapFragment"
+        android:label="fragment_search_map"
+        tools:layout="@layout/fragment_search_map" >
+        <action
+            android:id="@+id/action_searchMapFragment_to_searchResultMapFragmet"
+            app:destination="@id/searchResultMapFragmet" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchResultMapFragmet"
+        android:name="br.com.keep_informed.SearchResultMapFragmet"
+        android:label="fragment_search_result_map"
+        tools:layout="@layout/fragment_search_result_map" />
+</navigation>

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchResultMapActivity"></activity>
+        <activity android:name=".NavHost"></activity>
+        <activity android:name=".SearchResultMapActivity" />
         <activity android:name=".SearchMapActivity" />
         <activity android:name=".OfflineNewsActivity" />
         <activity android:name=".DetailsNewsActivity" />

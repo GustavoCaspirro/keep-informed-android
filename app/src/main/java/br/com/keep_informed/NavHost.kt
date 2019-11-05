@@ -3,10 +3,10 @@ package br.com.keep_informed
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class DetailsNewsActivity : AppCompatActivity() {
+class NavHost : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details_news)
+        setContentView(R.layout.activity_nav_host)
     }
 }
