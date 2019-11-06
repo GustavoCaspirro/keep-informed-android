@@ -7,6 +7,7 @@ import android.os.Bundle
 import br.com.keep_informed.R
 import br.com.keep_informed.interactors.navigation.ui.NavigationActivity
 import br.com.keep_informed.interactors.signin.ui.SignInActivity
+import br.com.keep_informed.interactors.signup.ui.SignUpActivity
 
 class SplashActivity : AppCompatActivity() {
 
@@ -27,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun startNextActivity() {
-        val intent = Intent(this, NavigationActivity::class.java)
+        val intent = Intent(this, SignInActivity::class.java)
         intent.flags =  Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
         startActivity(intent)

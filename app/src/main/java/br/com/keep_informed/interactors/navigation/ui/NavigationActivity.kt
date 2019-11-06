@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -30,7 +31,7 @@ class NavigationActivity : AppCompatActivity(), NavController.OnDestinationChang
         binding = DataBindingUtil.setContentView(this,R.layout.activity_navigation)
         binding.lifecycleOwner = this
 
-        navController = findNavController(R.id.nav_host_fragment)
+        navController = Navigation.findNavController(this,R.id.nav_host_fragment)
         navController.addOnDestinationChangedListener(this)
 
         setupActionBar()
@@ -61,7 +62,6 @@ class NavigationActivity : AppCompatActivity(), NavController.OnDestinationChang
                     navController.navigateUp()
                 }
             }
-
             override fun onSearchViewShown() {
                 navController.navigate(R.id.navigation_search)
             }
