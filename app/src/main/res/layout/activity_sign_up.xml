@@ -88,7 +88,7 @@
             android:layout_marginEnd="30dp"
             android:background="@color/colorPrimary"
             android:text="Criar cadastro"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

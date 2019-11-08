@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':news-api-library'
 rootProject.name='keep-informed-android'

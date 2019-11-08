@@ -1,6 +1,7 @@
 package br.com.keep_informed.di
 
 import android.app.Application
+import br.com.keep_informed.KeepInformedApplication
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -16,10 +17,10 @@ interface KeepInformedComponent {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(application: Application): Builder
+        fun application(application: KeepInformedApplication): Builder
 
         fun build(): KeepInformedComponent
     }
 
-    fun inject(app: Application)
+    fun inject(app: KeepInformedApplication)
 }

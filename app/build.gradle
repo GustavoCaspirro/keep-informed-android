@@ -110,6 +110,11 @@ dependencies {
     //EventBus
     implementation "org.greenrobot:eventbus:${rootProject.eventbus_version}"
 
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation("com.squareup.okhttp3:okhttp:4.2.1")
+
+
 
     //Facebook
     implementation "com.facebook.android:facebook-share:${rootProject.facebook_share_version}"
@@ -133,6 +138,7 @@ dependencies {
     testImplementation "junit:junit:${rootProject.junit_version}"
     androidTestImplementation "androidx.test:runner:${rootProject.testrunner_version}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${rootProject.espressocore_version}"
+    implementation project(path: ':news-api-library')
 }
 
 apply plugin: 'com.google.gms.google-services'
