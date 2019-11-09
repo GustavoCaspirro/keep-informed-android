@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/ivDetailNew"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="225dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_launcher_background"
