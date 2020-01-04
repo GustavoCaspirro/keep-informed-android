@@ -8,6 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="br.com.keep_informed.interactors.home.ui.HomeFragment"
+        android:label="@string/label_news"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_newsFragment_to_detailsNewsFragment"
@@ -21,9 +22,6 @@
         <action
             android:id="@+id/action_navigation_home_to_searchMapFragment"
             app:destination="@id/navigation_map" />
-        <action
-            android:id="@+id/action_navigation_my_account"
-            app:destination="@id/myAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsNewsFragment"
@@ -33,10 +31,17 @@
     <fragment
         android:id="@+id/navigation_bookmark"
         android:name="br.com.keep_informed.interactors.bookmark.ui.BookMarkFragment"
+        android:label="@string/label_bookmark"
         tools:layout="@layout/fragment_bookmark" />
+    <fragment
+        android:id="@+id/navigation_my_account"
+        android:name="br.com.keep_informed.interactors.myaccount.ui.MyAccountFragment"
+        android:label="@string/label_my_account"
+        tools:layout="@layout/fragment_my_account" />
     <fragment
         android:id="@+id/navigation_map"
         android:name="br.com.keep_informed.interactors.map.ui.SearchMapFragment"
+        android:label="@string/label_maps"
         tools:layout="@layout/fragment_search_map">
         <action
             android:id="@+id/action_searchMapFragment_to_searchResultMapFragmet"
@@ -52,9 +57,4 @@
         tools:layout="@layout/fragment_search"
         android:name="br.com.keep_informed.interactors.search.ui.SearchFragment"
         android:label="" />
-    <fragment
-        android:id="@+id/myAccountFragment"
-        android:name="br.com.keep_informed.interactors.myaccount.ui.MyAccountFragment"
-        android:label="fragment_my_account"
-        tools:layout="@layout/fragment_my_account" />
 </navigation>

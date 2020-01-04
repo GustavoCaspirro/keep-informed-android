@@ -1,14 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".interactors.myaccount.ui.MyAccountFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".interactors.myaccount.ui.MyAccountFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="@dimen/activity_vertical_margin"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/activity_vertical_margin"/>
+
+        <TextView
+            android:id="@+id/usernameTextView"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="18sp"
+            tools:text="1@android.com"
+            app:layout_constraintTop_toTopOf="@id/buttonSignInSignOut"
+            app:layout_constraintStart_toStartOf="@id/guideStart"
+            app:layout_constraintEnd_toStartOf="@id/buttonSignInSignOut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/buttonSignInSignOut"
+            style="@style/buttonPrimary"
+            android:text="@string/label_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/guideEnd"
+            app:layout_constraintTop_toTopOf="@id/guideTop"/>
+
+        <View
+            android:id="@+id/separatorView"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            app:layout_constraintTop_toBottomOf="@id/buttonSignInSignOut"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="1dp"
+            android:alpha="0.4"
+            android:background="#808080"/>
+
+        <TextView
+            android:id="@+id/needHelpTextView"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            app:layout_constraintTop_toBottomOf="@id/separatorView"
+            app:layout_constraintStart_toStartOf="@id/guideStart"
+            app:layout_constraintEnd_toEndOf="@id/guideEnd"
+            android:text="@string/label_need_help"
+            android:padding="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:id="@+id/separatorView2"
+            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/needHelpTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="1dp"
+            android:alpha="0.4"
+            android:background="#808080"/>
+
+        <TextView
+            android:id="@+id/aboutTextView"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            app:layout_constraintTop_toBottomOf="@id/separatorView2"
+            app:layout_constraintStart_toStartOf="@id/guideStart"
+            app:layout_constraintEnd_toEndOf="@id/guideEnd"
+            android:text="@string/label_about"
+            android:padding="8dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

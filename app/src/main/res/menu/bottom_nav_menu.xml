@@ -17,7 +17,7 @@
 
 
     <item
-        android:id="@+id/action_navigation_my_account"
+        android:id="@+id/navigation_my_account"
         android:icon="@drawable/ic_account_box_black_24dp"
         android:title="@string/action_my_account"/>
 

@@ -13,7 +13,7 @@ class BookmarkModule {
 
 
     @Provides
-    fun provideHomeViewModelFactory(repository: NewsRepository) : BookmarkViewModelFactory {
+    fun provideViewModelFactory(repository: NewsRepository) : BookmarkViewModelFactory {
         return BookmarkViewModelFactory(repository)
 
     }

@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.keep_informed">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".KeepInformedApplication"
@@ -13,17 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".interactors.about.AboutActivity"
+            android:launchMode="singleTop"/>
         <activity
             android:name=".interactors.navigation.ui.NavigationActivity"
-            android:launchMode="singleTop"/>
-
-        <activity android:name=".interactors.signup.ui.SignUpActivity"
-            android:launchMode="singleTop"/>
-
-
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".interactors.signup.ui.SignUpActivity"
+            android:launchMode="singleTop" />
         <activity android:name=".interactors.signin.ui.SignInActivity" />
-
         <activity android:name=".interactors.splash.ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

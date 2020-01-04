@@ -8,7 +8,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
 
         android:id="@+id/container"
         android:fitsSystemWindows="true"
@@ -29,17 +28,9 @@
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize">
+                android:layout_height="?attr/actionBarSize"/>
 
-                <ImageView
-                    android:id="@+id/brandingImageView"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_branding"
-                    tools:src="@drawable/ic_branding"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"/>
 
-            </androidx.appcompat.widget.Toolbar>
 
             <com.miguelcatalan.materialsearchview.MaterialSearchView
                 android:id="@+id/search_view"

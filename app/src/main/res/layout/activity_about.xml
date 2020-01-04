@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".interactors.about.AboutActivity">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideStart"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideEnd"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_end="@dimen/activity_horizontal_margin"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="@dimen/activity_horizontal_margin"/>
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/mainToolbar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"/>
+
+            <TextView
+                android:id="@+id/versionTextView"
+                app:layout_constraintTop_toBottomOf="@id/mainToolbar"
+                app:layout_constraintStart_toStartOf="@id/guideStart"
+                app:layout_constraintEnd_toEndOf="@id/guideEnd"
+                tools:text="2.0.0"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@string/content_about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:id="@+id/aboutTextView"
+                app:layout_constraintTop_toBottomOf="@id/versionTextView"
+                app:layout_constraintStart_toStartOf="@id/guideStart"
+                app:layout_constraintEnd_toEndOf="@id/guideEnd"
+                android:layout_marginTop="@dimen/activity_vertical_margin_2x"
+                android:fontFamily="sans-serif-condensed-light"
+                tools:text="@string/content_about"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

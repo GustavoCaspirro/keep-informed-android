@@ -42,7 +42,7 @@ class NavigationActivity : AppCompatActivity(), NavController.OnDestinationChang
     private fun setupBottomNavigation() {
         bottomAppBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_map, R.id.navigation_bookmark, R.id.action_navigation_my_account
+                R.id.navigation_home, R.id.navigation_map, R.id.navigation_bookmark, R.id.navigation_my_account
             )
         )
         setupActionBarWithNavController(navController, bottomAppBarConfiguration)
@@ -82,15 +82,6 @@ class NavigationActivity : AppCompatActivity(), NavController.OnDestinationChang
         })
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home -> {
-                binding.mainToolbar.title = ""
-            }
-            else ->{}
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     override fun onDestinationChanged(
         controller: NavController,

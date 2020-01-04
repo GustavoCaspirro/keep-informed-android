@@ -4,6 +4,8 @@ import br.com.keep_informed.interactors.bookmark.module.BookmarkModule
 import br.com.keep_informed.interactors.bookmark.ui.BookMarkFragment
 import br.com.keep_informed.interactors.home.module.HomeModule
 import br.com.keep_informed.interactors.home.ui.HomeFragment
+import br.com.keep_informed.interactors.search.module.SearchModule
+import br.com.keep_informed.interactors.search.ui.SearchFragment
 import br.com.keep_informed.interactors.signin.module.SignInModule
 import br.com.keep_informed.interactors.signin.ui.SignInActivity
 import br.com.keep_informed.interactors.signin.viewmodel.SignInViewModel
@@ -21,6 +23,9 @@ abstract class BuilderModule {
 
     @ContributesAndroidInjector(modules = [BookmarkModule::class])
     abstract fun bindBookmarkFragment() : BookMarkFragment
+
+    @ContributesAndroidInjector(modules = [SearchModule::class])
+    abstract fun bindSearchFragment() : SearchFragment
 
     @ContributesAndroidInjector(modules = [SignInModule::class])
     abstract fun bindSignInActivity() : SignInActivity
