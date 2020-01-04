@@ -1,163 +1,31 @@
 <resources>
     <string name="app_name">keep-informed-android</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="action_home">Home</string>
-    <string name="action_list">Lista</string>
-    <string name="action_location">Mapas</string>
-    <string name="action_bookmark">Favoritos</string>
-    <string name="label_search">Pesquisar</string>
+    <string name="action_list">List</string>
+    <string name="action_location">Map</string>
+    <string name="action_bookmark">Bookmark</string>
+    <string name="label_search">Search</string>
     <string name="hint_username">Login</string>
-    <string name="hint_password">Senha</string>
-    <string name="label_sign_in">Entrar</string>
-    <string name="label_do_not_have_account">Não possuo uma conta</string>
-    <string name="label_continue_without_registration"><u>Continuar sem cadastro</u></string>
-    <string name="error_invalid_username">usuário inválido</string>
-    <string name="error_invalid_password">Senha inválida</string>
-    <string name="error_invalid_credentials">Credenciais inválidas</string>
-    <string name="hint_confirm_password">Confirmar Senha</string>
+    <string name="hint_password">Password</string>
+    <string name="label_sign_in">Enter</string>
+    <string name="label_do_not_have_account">I don\'t have account</string>
+    <string name="label_continue_without_registration"><u>Continue without registration</u></string>
+    <string name="error_invalid_username">Invalid User</string>
+    <string name="error_invalid_password">Invalid Password</string>
+    <string name="error_invalid_credentials">Invalid Credentials</string>
+    <string name="hint_confirm_password">Confirm Password</string>
     <string name="hint__email">Email</string>
-    <string name="label_sign_up">Cadastrar</string>
-    <string name="error_invalid_or_unconfirmed_password">Senha inválida, a senhas devem ser iguais</string>
-    <string name="action_my_account">Minha Conta</string>
-    <string name="label_bookmark">Favoritos</string>
-    <string name="label_maps">Mapas</string>
-    <string name="label_my_account">Minha conta</string>
-    <string name="label_home">Inicio</string>
-    <string name="label_news">Notícias</string>
-    <string name="label_need_help">Precisa de ajuda ? Clique aqui e entre em contato</string>
-    <string name="label_about">Sobre</string>
-    <string name="signOut">Sair</string>
-    <string name="content_about" >
-        <b>https://github.com/GustavoCaspirro/keep-informed-android/edit/master/README.md</b><br/>
-
-        # keep-informed-android\n
-
-        ## Trabalho de conclusão de módulo\n
-        Criar um aplicativo mobile Android que contenha:\n
-
-        ###### Requisito 1 - Tela de SplashScreen\n
-        Essa tela deverá conter o logotipo da aplicação e uma animação.\n
-
-        ###### Requisito 2 - Tela de Login/n
-        Validar os dados do usuário através de um serviço. O usuário deverá poder criar uma conta./n
-        Permitir que o usuário possa se manter conectado./n
-
-        ###### Requisito 3 - Tela Principal/n
-        Essa tela deverá conter um NavigationView ou BottomNavigationVIew que irá abrir as demais telas e também finalizar a aplicação./n
-
-        ###### Requisito 4 – Tela de Cadastro/n
-        O aplicativo deverá conter pelo menos uma tela para realizar cadastro./n
-        As informações a serem cadastradas ficam livre para o aluno escolher./n
-        Por exemplo: cadastro de imóveis visitados, loja com determinados produtos desejados./n
-        Os dados deverão ser persistidos no SQLite./n
-
-        ###### Requisito 5 – Tela Lista de Exibição dos Dados/n
-        Utilizar o RecyclerView para exibir os dados gravados na tela anterior./n
-        O usuário poderá realizar a exclusão do registro através da lista./n
-
-        ###### Requisito 6 – Tela de Edição dos dados/n
-        Através do RecyclerView (Funcionalidade 5) o usuário poderá abrir a tela de edição e realizar a alteração dos dados./n
-
-        ###### Requisito 7 – Tela de Sobre/n
-        A tela deverá conter:/n
-        Logo do aplicativo Nome do Desenvolvedor Versão do Aplicativo/n
-
-        ###### Requisito 8 - Tela de Mapa/n
-        A aplicação deverá ter um mapa e mostrar pelo menos uma coordenada./n
-        Por exemplo: ponto do estabelecimento, pontos de vendas, pontos de exposições./n
-
-        ###### Requisito 9 - Integração de recursos/n
-        O aplicativo deverá implementar as seguintes funcionalidades:/n
-        - Realizar ligação/n
-        - Compartilhar conteúdo/n
-
-        ###### Requisito 10 - Push Notification/n
-        O aplicativo deverá receber notificações via PUSH pelo Firebase./n
-        Deverá exibir a mensagem utilizando o Notification. Ao clicar sobre a notificação o usuário deverá ser direcionado para o aplicativo./n
-
-        ###### Requisito 11 - Analytics/n
-        O aplicativo deverá enviar informações pertinentes para análise de uso do aplicativo./n
-
-        ###### Requisito 12 - Crashlytics/n
-        Visando à qualidade do aplicativo, os crash deverão ser enviados para o Firebase Crashlytics./n
-
-        ###### Requisito 12 - Firebase App Distribution/n
-        Adicionar o e-mail: ​tester.heider@gmail.com​ como beta tester./n
-
-        ###### Requisito 13 - Product Flavors/n
-        O aplicativo deverá conter pelo menos dois flavors./n
-
-        ###### Requisito 14 - Criação de uma biblioteca/n
-        O aplicativo deverá utilizar uma biblioteca criada por você./n
-
-        ###### Requisito 15 - nfig/n
-        Adicionar configurações remotas no Firebase./n
-
-        ## Considerações/n
-        Para uma maior abrangência de usuários o aplicativo deverá ter o idioma padrão como inglês e ter suporte (tradução para o português)/n
-
-        Para facilitar a manutenção do aplicativo deverá ser seguidos os padrões da plataforma Android em relação aos recursos (res, strings, colors, arrays, dimens, styles, entre outros)./n
-
-        O aplicativo deverá atender a partir da API 21 do Android./n
-
-        A interface com o usuário é de vital importância para o sucesso do sistema. O usuário não possui tempo disponível para aprender como utilizar o sistema. O sistema terá uma interface amigável ao usuário primário sem se tornar cansativa aos usuários mais experientes./n
-
-        **Não copiar do amiguinho.**/n
-
-        ## Avaliação/n
-        A entrega deverá ser feita pelo portal./n
-
-        Caso não seja entregue até a data limite a nota do aplicativo automaticamente será 0./n
-
-        Deverá ser enviado um arquivo zipado(contendo o apk e um documento txt com nome do aluno e o link do github do código)/n
-
-        Será considerado o código commitado até a data limite da entrega./n
-
-        O ​apk​ deverá estar funcionando, caso contrário a nota será 0./n
-
-        Havendo a suspeita de plágio, todos os alunos envolvidos receberão nota 0 e estarão sujeitos às medidas disciplinares da instituição./n
-
-        A nota será dada de acordo com as funcionalidades implementadas e os padrões seguidos./n
-
-        ## A apresentação/n
-        Cada aluno terá de 3 a 5 minutos para realizar a apresentação. Deverá ser apresentado o slide com os seguintes tópicos:/n
-
-        ###### 1. Qual é a oportunidade/n
-        ###### 2. O Mercado que irá atuar/n
-        ###### 3. Qual é a sua solução/n
-        ###### 4. Seus diferenciais/n
-        ###### 5. O que está buscando/n
-
-        ## Detalhando a apresentação/n
-
-        ###### Slide 1 – Identificando a Oportunidade/n
-        Um pitch deve começar indicando qual a oportunidade que sua empresa irá atender, isto é, qual o mercado e a necessidade que o mesmo tem e não é bem atendida pelos players majoritários, de forma bem objetiva e direta./n
-
-        Exemplo: “Nós iremos resolver o problema das perdas na distribuição de água” -> aqui você já determinou o mercado (“distribuidoras de água”) e a oportunidade (“resolver o problema das perdas”)./n
-
-        ###### Slides 2 e 3 – Apresentando a sua Solução/n
-        A seguir apresente rapidamente qual a solução que propõe para atender a necessidade da oportunidade já destacando a sua inovação/diferenciação./n
-
-        Insira amostras do seu produto/serviço, sejam telas do mesmo, fotos de um protótipo, um vídeo explicativo, etc. Tudo que tanto facilite o entendimento quanto demonstre sua capacidade de execução.
-
-        ###### Slide 4 – Destacando seus Diferenciais/n
-        Reforce suas vantagens competitivas perante a solução existentes. Compare com quem já tenha maior market-share no mercado que irá atuar independentemente de ser similar.?/n
-
-        Exemplo: “Nossa tecnologia, diferentemente do maior player deste mercado, pois ...”./n
-
-        ###### Slide 5 – Explanando sua Proposta/n
-        Aqui, se você estiver apresentando para um investidor, deve apresentar qual o estágio do seu negócio, qual valor do investimento está buscando e para que será utilizado./n
-
-        Exemplo: “Já temos um protótipo funcional testado e avaliado pela companhia XYZ e estamos buscando um investimento de R$ nnn para completar o desenvolvimento, fabricar as unidades piloto e fechar os primeiros contratos”. E completar perguntando se teria interesse em avaliar para investir./n
-
-        Se você estiver apresentando para um cliente, deve apresentar qual sua proposta comercial./n
-
-        Exemplo: “Nossos serviços são remunerados com uma parte da economia que gerarmos para sua empresa; você não precisará fazer qualquer investimento”./n
-
-        ## Contato: **tester.heider@gmail.com**/n
-
-
-    </string>
+    <string name="label_sign_up">Register</string>
+    <string name="error_invalid_or_unconfirmed_password">Invalid Password, password must be the same</string>
+    <string name="action_my_account">My Account</string>
+    <string name="label_bookmark">Bookmark</string>
+    <string name="label_maps">Maps</string>
+    <string name="label_my_account">My Account</string>
+    <string name="label_home">Home</string>
+    <string name="label_news">News</string>
+    <string name="label_need_help">Do you Need Help ? Click here and contact us</string>
+    <string name="label_about">About</string>
+    <string name="signOut">Exit</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

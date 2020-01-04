@@ -37,6 +37,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        demo {
+            dimension "version"
+            versionNameSuffix "-demo"
+        }
+        full {
+            dimension "version"
+            versionNameSuffix "-full"
+        }
+    }
 }
 
 dependencies {
@@ -102,6 +114,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     kapt "com.google.dagger:dagger-compiler:${rootProject.dagger_version}"
 
     //Dagger Android

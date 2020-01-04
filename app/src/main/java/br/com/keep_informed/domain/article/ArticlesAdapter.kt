@@ -46,12 +46,18 @@ class ArticlesAdapter : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>(
 
     inner class ArticleViewHolder(private val binding: CellArticleBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(article: Article){
+            binding.root.setOnClickListener {
+                articleListener?.onArticleClicked(article)
+            }
+
             binding.titleTextView.text = article.title
             binding.articleTextView.text = article.description
             binding.articleImageView.load(article.urlToImage,null,null)
             binding.bookmarkImageView.setOnClickListener {
                 articleListener?.onFavoriteClicked(article)
             }
+
+
 
             binding.bookmarkImageView.visibility = if(showBookmarkIndicator) View.VISIBLE else View.INVISIBLE
             binding.bookmarkImageView.setImageResource(

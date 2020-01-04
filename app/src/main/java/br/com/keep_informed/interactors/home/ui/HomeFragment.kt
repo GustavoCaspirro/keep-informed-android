@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.fiap.mob18.newsapilibrary.model.Article
 import br.com.keep_informed.R
@@ -105,6 +107,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun asArticleListener() = object:ArticleListener{
+        override fun onArticleClicked(article: Article) {
+            val bundle = bundleOf("extra-article" to article)
+            findNavController().navigate(R.id.navigation_detail, bundle)
+        }
+
         override fun onFavoriteClicked(article: Article) {
             homeViewModel.favorite(article)
         }

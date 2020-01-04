@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">keep-informed-android</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_home">Home</string>
+    <string name="action_list">Lista</string>
+    <string name="action_location">Mapas</string>
+    <string name="action_bookmark">Favoritos</string>
+    <string name="label_search">Pesquisar</string>
+    <string name="hint_username">Login</string>
+    <string name="hint_password">Senha</string>
+    <string name="label_sign_in">Entrar</string>
+    <string name="label_do_not_have_account">Não possuo uma conta</string>
+    <string name="label_continue_without_registration"><u>Continuar sem cadastro</u></string>
+    <string name="error_invalid_username">usuário inválido</string>
+    <string name="error_invalid_password">Senha inválida</string>
+    <string name="error_invalid_credentials">Credenciais inválidas</string>
+    <string name="hint_confirm_password">Confirmar Senha</string>
+    <string name="hint__email">Email</string>
+    <string name="label_sign_up">Cadastrar</string>
+    <string name="error_invalid_or_unconfirmed_password">Senha inválida, a senhas devem ser iguais</string>
+    <string name="action_my_account">Minha Conta</string>
+    <string name="label_bookmark">Favoritos</string>
+    <string name="label_maps">Mapas</string>
+    <string name="label_my_account">Minha conta</string>
+    <string name="label_home">Inicio</string>
+    <string name="label_news">Notícias</string>
+    <string name="label_need_help">Precisa de ajuda ? Clique aqui e entre em contato</string>
+    <string name="label_about">Sobre</string>
+    <string name="signOut">Sair</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

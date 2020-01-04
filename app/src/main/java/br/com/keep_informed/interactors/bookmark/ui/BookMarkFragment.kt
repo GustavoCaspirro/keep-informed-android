@@ -4,14 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.fiap.mob18.newsapilibrary.model.Article
 import br.com.keep_informed.R
 import br.com.keep_informed.databinding.FragmentBookmarkBinding
+import br.com.keep_informed.domain.article.ArticleListener
 import br.com.keep_informed.domain.article.ArticlesAdapter
 import br.com.keep_informed.interactors.bookmark.viewmodel.BookmarkViewModel
 import br.com.keep_informed.interactors.bookmark.viewmodel.BookmarkViewModelFactory
@@ -66,6 +69,7 @@ class BookMarkFragment : Fragment() {
         with(binding.articlesRecyclerView){
             this.setHasFixedSize(true)
             this.layoutManager = LinearLayoutManager(context)
+            articlesAdapter.articleListener = asArticleListener()
             articlesAdapter.showBookmarkIndicator = false
             this.adapter = articlesAdapter
 
@@ -91,6 +95,17 @@ class BookMarkFragment : Fragment() {
         throwable?.let {
             Snackbar.make(binding.root,throwable.message ?: "", Snackbar.LENGTH_LONG)
         }
+    }
+
+    private fun asArticleListener() = object: ArticleListener {
+        override fun onArticleClicked(article: Article) {
+            val bundle = bundleOf("extra-article" to article)
+            findNavController().navigate(R.id.navigation_detail, bundle)
+        }
+
+        override fun onFavoriteClicked(article: Article) {}
+
+
     }
 
 }

@@ -10,9 +10,7 @@
         android:name="br.com.keep_informed.interactors.home.ui.HomeFragment"
         android:label="@string/label_news"
         tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_newsFragment_to_detailsNewsFragment"
-            app:destination="@id/detailsNewsFragment" />
+
         <action
             android:id="@+id/action_navigation_home_to_offlineNewsFragment"
             app:destination="@id/navigation_bookmark" />
@@ -22,12 +20,11 @@
         <action
             android:id="@+id/action_navigation_home_to_searchMapFragment"
             app:destination="@id/navigation_map" />
+        <action
+            android:id="@+id/action_navigation_home_to_detailActivity"
+            app:destination="@id/navigation_detail" />
     </fragment>
-    <fragment
-        android:id="@+id/detailsNewsFragment"
-        android:name="br.com.keep_informed.interactors.details.ui.DetailsNewsFragment"
-        android:label="fragment_details_news"
-        tools:layout="@layout/fragment_details_news" />
+
     <fragment
         android:id="@+id/navigation_bookmark"
         android:name="br.com.keep_informed.interactors.bookmark.ui.BookMarkFragment"
@@ -42,19 +39,22 @@
         android:id="@+id/navigation_map"
         android:name="br.com.keep_informed.interactors.map.ui.SearchMapFragment"
         android:label="@string/label_maps"
-        tools:layout="@layout/fragment_search_map">
-        <action
-            android:id="@+id/action_searchMapFragment_to_searchResultMapFragmet"
-            app:destination="@id/searchResultMapFragmet" />
-    </fragment>
-    <fragment
-        android:id="@+id/searchResultMapFragmet"
-        android:name="br.com.keep_informed.interactors.map.ui.SearchResultMapFragmet"
-        android:label="fragment_search_result_map"
-        tools:layout="@layout/fragment_search_result_map" />
+        tools:layout="@layout/fragment_search_map"/>
+
+
+
     <fragment
         android:id="@+id/navigation_search"
         tools:layout="@layout/fragment_search"
         android:name="br.com.keep_informed.interactors.search.ui.SearchFragment"
         android:label="" />
+    <activity
+        android:id="@+id/navigation_detail"
+        android:name="br.com.keep_informed.interactors.details.ui.DetailActivity"
+        tools:layout="@layout/activity_detail">
+
+        <argument
+            android:name="extra-article"
+            app:argType="br.com.fiap.mob18.newsapilibrary.model.Article" />
+    </activity>
 </navigation>

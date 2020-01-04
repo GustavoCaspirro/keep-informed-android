@@ -53,7 +53,6 @@
                 tools:text="2.0.0"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="@string/content_about"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
@@ -65,7 +64,6 @@
                 app:layout_constraintEnd_toEndOf="@id/guideEnd"
                 android:layout_marginTop="@dimen/activity_vertical_margin_2x"
                 android:fontFamily="sans-serif-condensed-light"
-                tools:text="@string/content_about"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
