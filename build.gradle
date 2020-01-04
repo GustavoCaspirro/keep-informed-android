@@ -40,6 +40,7 @@ ext{
     firebase_config      = "15.0.2"
     firebase_analytics   = "15.0.2"
     firebase_crashlytics = "2.10.1"
+    firebase_auth_ui     = "6.1.0"
 
     //Play Services
     gms_analytics_version = "15.0.2"

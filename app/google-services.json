@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1080668414104",
+    "firebase_url": "https://keep-informed.firebaseio.com",
+    "project_id": "keep-informed",
+    "storage_bucket": "keep-informed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1080668414104:android:785b9bbe14274cdfe9b0ed",
+        "android_client_info": {
+          "package_name": "br.com.keep_informed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1080668414104-mun6chjdel1bub0ar4eggto4jhhi5f2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHDNUJD-iotoXJX-uZWZVbrpyCMBgStYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1080668414104-mun6chjdel1bub0ar4eggto4jhhi5f2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

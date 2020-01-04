@@ -19,8 +19,8 @@
             android:launchMode="singleTop"/>
 
         <activity android:name=".interactors.signup.ui.SignUpActivity"
-            android:launchMode="singleTop"
-            android:noHistory="true"/>
+            android:launchMode="singleTop"/>
+
 
         <activity android:name=".interactors.signin.ui.SignInActivity" />
 

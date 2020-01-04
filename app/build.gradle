@@ -76,6 +76,7 @@ dependencies {
     implementation "com.google.firebase:firebase-config:${rootProject.firebase_config}"
     implementation "com.google.firebase:firebase-analytics:${rootProject.firebase_analytics}"
     implementation "com.crashlytics.sdk.android:crashlytics:${rootProject.firebase_crashlytics}"
+    implementation "com.firebaseui:firebase-ui-auth:$firebase_auth_ui"
 
 
     //Play Services
@@ -131,6 +132,8 @@ dependencies {
 
     //MaterialSearchView https://github.com/brunoluizcs/MaterialSearchView
     implementation "com.miguelcatalan:materialsearchview:${rootProject.materialsearchview_version}"
+
+
 
     //Test
     testImplementation "junit:junit:${rootProject.junit_version}"

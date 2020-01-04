@@ -13,7 +13,7 @@ class NewsModule {
     @Provides
     fun provideGoogleNewsApi() : NewsApi {
         return GoogleApiBuilder()
-            .withApiKey("")
+            .withApiKey("ca2d507945314e22b354bfc01251061a")
             .build()
     }
 

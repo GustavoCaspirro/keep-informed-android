@@ -8,4 +8,16 @@
     <string name="action_location">Mapas</string>
     <string name="action_bookmark">Favoritos</string>
     <string name="label_search">Pesquisar</string>
+    <string name="hint_username">Login</string>
+    <string name="hint_password">Senha</string>
+    <string name="label_sign_in">Entrar</string>
+    <string name="label_do_not_have_account">Não possuo uma conta</string>
+    <string name="label_continue_without_registration"><u>Continuar sem cadastro</u></string>
+    <string name="error_invalid_username">usuário inválido</string>
+    <string name="error_invalid_password">Senha inválida</string>
+    <string name="error_invalid_credentials">Credenciais inválidas</string>
+    <string name="hint_confirm_password">Confirmar Senha</string>
+    <string name="hint__email">Email</string>
+    <string name="label_sign_up">Cadastrar</string>
+    <string name="error_invalid_or_unconfirmed_password">Senha inválida, a senhas devem ser iguais</string>
 </resources>

@@ -2,12 +2,14 @@ package br.com.keep_informed.interactors.splash.ui
 
 import android.content.Intent
 import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.keep_informed.R
 import br.com.keep_informed.interactors.navigation.ui.NavigationActivity
 import br.com.keep_informed.interactors.signin.ui.SignInActivity
-import br.com.keep_informed.interactors.signup.ui.SignUpActivity
+import com.firebase.ui.auth.AuthUI
+import com.google.firebase.auth.FirebaseAuth
+
 
 class SplashActivity : AppCompatActivity() {
 
@@ -28,9 +30,14 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun startNextActivity() {
-        val intent = Intent(this, SignInActivity::class.java)
-        intent.flags =  Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        intent.flags =  Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
+        intent = if (FirebaseAuth.getInstance().currentUser == null) {
+            Intent(this, SignInActivity::class.java)
+        } else {
+            Intent(this,NavigationActivity::class.java)
+        }
+        finish()
         startActivity(intent)
     }
 
