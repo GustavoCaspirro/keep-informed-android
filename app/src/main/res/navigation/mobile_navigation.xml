@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_navigation_home_to_searchMapFragment"
             app:destination="@id/navigation_map" />
+        <action
+            android:id="@+id/action_navigation_my_account"
+            app:destination="@id/myAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsNewsFragment"
@@ -49,4 +52,9 @@
         tools:layout="@layout/fragment_search"
         android:name="br.com.keep_informed.interactors.search.ui.SearchFragment"
         android:label="" />
+    <fragment
+        android:id="@+id/myAccountFragment"
+        android:name="br.com.keep_informed.interactors.myaccount.ui.MyAccountFragment"
+        android:label="fragment_my_account"
+        tools:layout="@layout/fragment_my_account" />
 </navigation>

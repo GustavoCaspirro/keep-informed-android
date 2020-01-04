@@ -42,7 +42,7 @@ class NavigationActivity : AppCompatActivity(), NavController.OnDestinationChang
     private fun setupBottomNavigation() {
         bottomAppBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_map, R.id.navigation_bookmark
+                R.id.navigation_home, R.id.navigation_map, R.id.navigation_bookmark, R.id.action_navigation_my_account
             )
         )
         setupActionBarWithNavController(navController, bottomAppBarConfiguration)

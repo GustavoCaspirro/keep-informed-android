@@ -34,6 +34,9 @@ ext{
     //Crashlytics
     crashlytics_version = "2.10.1"
 
+    //Room
+    room_version = "2.2.3"
+
     //Firebase
     firebase_core        = "15.0.2"
     firebase_messaging   = "15.0.2"

@@ -4,30 +4,93 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.fiap.mob18.newsapilibrary.model.Article
 import br.com.keep_informed.R
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import br.com.keep_informed.databinding.FragmentBookmarkBinding
+import br.com.keep_informed.domain.article.ArticlesAdapter
+import br.com.keep_informed.interactors.bookmark.viewmodel.BookmarkViewModel
+import br.com.keep_informed.interactors.bookmark.viewmodel.BookmarkViewModelFactory
+import br.com.keep_informed.services.ServiceStatus
+import com.google.android.material.snackbar.Snackbar
+import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
 
 class BookMarkFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
+
+    lateinit var binding : FragmentBookmarkBinding
+
+    @Inject
+    lateinit var viewModelFactory: BookmarkViewModelFactory
+
+    lateinit var viewModel: BookmarkViewModel
+
+    private val articlesAdapter = ArticlesAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_bookmark, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_bookmark, container, false)
+
+        binding.lifecycleOwner = this
+
+        viewModel = ViewModelProviders.of(this,viewModelFactory).get(
+            BookmarkViewModel::class.java)
+
+        viewModel.newsData.observe(this, Observer {
+            when(it.status){
+                ServiceStatus.SUCCESS -> onNewsResult(it.result)
+                ServiceStatus.LOADING -> setLoadingIndicator(true)
+                ServiceStatus.ERROR -> onRequestError(it.throwable)
+            }
+        })
+
+        setupView()
+
+        return binding.root
+    }
+
+
+    private fun setupView() {
+        with(binding.articlesRecyclerView){
+            this.setHasFixedSize(true)
+            this.layoutManager = LinearLayoutManager(context)
+            articlesAdapter.showBookmarkIndicator = false
+            this.adapter = articlesAdapter
+
+        }
+    }
+
+    override fun onDestroyView() {
+        viewModel.newsData.removeObservers(this)
+        super.onDestroyView()
+    }
+
+    private fun setLoadingIndicator(isLoading: Boolean) {
+        binding.isLoading = isLoading
+    }
+
+    private fun onNewsResult(result: List<Article>?) {
+        result?.let {
+            articlesAdapter.addAll(it)
+        }
+    }
+
+    private fun onRequestError(throwable: Throwable?) {
+        throwable?.let {
+            Snackbar.make(binding.root,throwable.message ?: "", Snackbar.LENGTH_LONG)
+        }
     }
 
 }

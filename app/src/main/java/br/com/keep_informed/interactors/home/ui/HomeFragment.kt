@@ -8,22 +8,23 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.fiap.mob18.newsapilibrary.model.Article
 import br.com.keep_informed.R
 import br.com.keep_informed.databinding.FragmentHomeBinding
+import br.com.keep_informed.domain.article.ArticleListener
+import br.com.keep_informed.domain.article.ArticlesAdapter
 import br.com.keep_informed.interactors.home.viewmodel.HomeViewModel
 import br.com.keep_informed.interactors.home.viewmodel.HomeViewModelFactory
 import br.com.keep_informed.services.ServiceStatus
-import br.com.keep_informed.services.news.results.ArticleResult
 import com.google.android.material.snackbar.Snackbar
-import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
 class HomeFragment : Fragment() {
+
+
     lateinit var binding : FragmentHomeBinding
 
     @Inject
@@ -36,8 +37,6 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(
@@ -48,7 +47,8 @@ class HomeFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        homeViewModel = ViewModelProviders.of(requireActivity(),viewModelFactory).get(HomeViewModel::class.java)
+        homeViewModel = ViewModelProviders.of(requireActivity(),viewModelFactory).get(
+            HomeViewModel::class.java)
 
         homeViewModel.newsData.observe(this, Observer {
             when(it.status){
@@ -58,16 +58,28 @@ class HomeFragment : Fragment() {
             }
         })
 
+        homeViewModel.favoriteEventData.observe(this, Observer {
+            when(it.status){
+                ServiceStatus.SUCCESS -> onFavoriteResult(it.result)
+            }
+        })
+
         setupView()
 
         return binding.root
+    }
+
+    private fun onFavoriteResult(result: List<Article>?) {
+        result?.map {articlesAdapter.updateArticle(it)}
     }
 
     private fun setupView() {
         with(binding.articlesRecyclerView){
             this.setHasFixedSize(true)
             this.layoutManager = LinearLayoutManager(context)
+            articlesAdapter.articleListener = this@HomeFragment.asArticleListener()
             this.adapter = articlesAdapter
+
         }
     }
 
@@ -92,5 +104,13 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    private fun asArticleListener() = object:ArticleListener{
+        override fun onFavoriteClicked(article: Article) {
+            homeViewModel.favorite(article)
+        }
+    }
 }
+
+
+
+

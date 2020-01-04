@@ -133,6 +133,8 @@ dependencies {
     //MaterialSearchView https://github.com/brunoluizcs/MaterialSearchView
     implementation "com.miguelcatalan:materialsearchview:${rootProject.materialsearchview_version}"
 
+    implementation "androidx.room:room-runtime:${rootProject.room_version}"
+    kapt "androidx.room:room-compiler:${rootProject.room_version}"
 
 
     //Test

@@ -1,6 +1,7 @@
 package br.com.keep_informed.services.news.repository
 
 import br.com.fiap.mob18.newsapilibrary.api.NewsApi
+import br.com.fiap.mob18.newsapilibrary.model.Article
 import br.com.fiap.mob18.newsapilibrary.model.ArticleResponse
 import br.com.fiap.mob18.newsapilibrary.model.Category
 import br.com.fiap.mob18.newsapilibrary.model.Sorter
@@ -10,6 +11,36 @@ import java.util.*
 class NewsRepositoryImpl(
     private val api : NewsApi
 ): NewsRepository {
+
+    override fun fetchFavorites(): Single<ArticleResponse> {
+        return Single.create {
+            try {
+                val response = api.fetchFavorites()
+                if (! it.isDisposed){
+                    it.onSuccess(response)
+                }
+            } catch (e: Throwable) {
+                if (!it.isDisposed){
+                    it.onError(e)
+                }
+            }
+        }
+    }
+
+    override fun favorite(article: Article) : Single<Article> {
+        return Single.create<Article> {
+            if (! article.isFavorite){
+                api.addFavorite(article)
+            }else{
+                api.removeFavorite(article)
+            }
+
+            article.isFavorite = ! article.isFavorite
+            it.onSuccess(article)
+        }
+
+    }
+
     override fun fetchTopHeadLines(
         query: String?,
         category: Category?,

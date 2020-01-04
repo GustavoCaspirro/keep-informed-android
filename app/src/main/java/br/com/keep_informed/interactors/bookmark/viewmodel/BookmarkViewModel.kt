@@ -1,4 +1,4 @@
-package br.com.keep_informed.interactors.home.viewmodel
+package br.com.keep_informed.interactors.bookmark.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,14 +10,14 @@ import br.com.keep_informed.services.news.results.ArticleResult
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class HomeViewModel(
+class BookmarkViewModel(
     private val repository: NewsRepository
 ): BaseViewModel() {
 
 
     private val _newsData = MutableLiveData<ArticleResult>().apply {
         disposables.add(
-            repository.fetchTopHeadLines(null,null,"br",50,0)
+            repository.fetchFavorites()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .doOnSubscribe { postValue(ArticleResult.resultLoading()) }
@@ -32,22 +32,8 @@ class HomeViewModel(
 
     }
 
-    fun favorite(article: Article) {
-        disposables.add(
-            repository.favorite(article)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.io())
-                .subscribe({
-                    favoriteEventData.postValue(ArticleResult.resultSuccess(listOf(it)))
-                },{
-                    favoriteEventData.postValue(ArticleResult.resultError(it))
-                })
-        )
-
-    }
 
 
     val newsData : LiveData<ArticleResult> = _newsData
-    val favoriteEventData = SingleLiveEvent<ArticleResult>()
 
 }

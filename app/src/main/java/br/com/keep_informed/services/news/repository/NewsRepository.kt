@@ -1,5 +1,6 @@
 package br.com.keep_informed.services.news.repository
 
+import br.com.fiap.mob18.newsapilibrary.model.Article
 import br.com.fiap.mob18.newsapilibrary.model.ArticleResponse
 import br.com.fiap.mob18.newsapilibrary.model.Category
 import br.com.fiap.mob18.newsapilibrary.model.Sorter
@@ -23,4 +24,9 @@ interface NewsRepository {
                         language: String,
                         pageSize: Int,
                         page: Int) : Single<ArticleResponse>
+
+    fun fetchFavorites() : Single<ArticleResponse>
+
+    fun favorite(article: Article) : Single<Article>
+
 }
